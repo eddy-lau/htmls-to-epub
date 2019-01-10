@@ -1,0 +1,23 @@
+{
+  "name": "htmls-to-epub",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "archiver": "^3.0.0",
+    "array-to-tree": "^3.3.0",
+    "fs-extra": "^7.0.1",
+    "moment": "^2.23.0",
+    "path": "^0.12.7",
+    "uuid": "^3.3.2",
+    "xml2js": "^0.4.19"
+  },
+  "devDependencies": {
+    "nodemailer": "^5.1.1"
+  }
+}
