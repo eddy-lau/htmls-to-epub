@@ -65,12 +65,18 @@ function buildManifest(metadataPath, htmlFiles) {
     json.package.manifest[0].item =
       htmlFiles.map( htmlFile => {
 
+        var attr = {
+          href: htmlFile.filename,
+          id: htmlFile.id,
+          'media-type': htmlFile.mediaType
+        };
+
+        if (htmlFile.properties != undefined) {
+          attr.properties = htmlFile.properties;
+        }
+
         return {
-          $: {
-            href: htmlFile.filename,
-            id: htmlFile.id,
-            'media-type': htmlFile.mediaType
-          }
+          $: attr
         };
 
       });
@@ -266,7 +272,7 @@ function convert(opts) {
 
     return new Promise( (resolve, reject) => {
 
-      var fileName =   'output.epub';
+      var fileName = opts.outputFileName || 'output.epub';
       var outputFilePath = path.join(outputDir, fileName);
       var fileOutput = fs.createWriteStream(outputFilePath);
 
